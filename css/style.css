@@ -212,6 +212,7 @@ ol {
 .block__title_1 {
   padding-bottom: 16px;
   max-width: 920px;
+  border-bottom: 1px solid #397EDB;
 }
 
 .hero__title {
@@ -474,7 +475,8 @@ ol {
   .location {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
-    min-height: 420px;
+    min-height: auto;
+    /* min-height: 420px; */
   }
 
   .location__info {
