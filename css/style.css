@@ -474,7 +474,7 @@ ol {
   /* ===== Адресс и ОКЦ ===== */
   .location {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: 1fr 1fr;
     min-height: auto;
     /* min-height: 420px; */
   }
