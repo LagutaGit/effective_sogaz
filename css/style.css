@@ -50,7 +50,7 @@ ol {
   justify-content: center;
   padding: 16px 48px;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
   border: none;
   border-radius: 6px;
@@ -71,7 +71,7 @@ ol {
 
 /* ===== Секции ===== */
 .section-title {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(28px, 4vw, 59px);
   font-weight: 800;
   text-align: center;
   letter-spacing: 0.02em;
@@ -87,14 +87,14 @@ ol {
 /* ===== HERO Блок ===== */
 .hero {
   position: relative;
-  min-height: 75vh;
+  min-height: 84vh;
   background: #0B1A3A;
   /* запасной цвет, если картинки не загрузятся */
   color: #fff;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding-top: 40px;
+  /*   padding-top: 40px; */
 }
 
 /* 1. Паттерн зданий — на весь hero */
@@ -236,506 +236,515 @@ ol {
 }
 
 .hero__subtitle {
-  font-size: clamp(14px, 1.6vw, 17px);
+  /* font-size: clamp(14px, 1.6vw, 17px);
   font-weight: 400;
   opacity: 0.85;
+  max-width: 640px; */
+  /* margin-bottom: 40px; */
+  /* margin-bottom: 12%;
+  line-height: 1.55;
+ */
+  font-size: clamp(14px, 1.6vw, 17px);
+  /* font-weight: 400; */
+  /* opacity: 0.85; */
   max-width: 640px;
   /* margin-bottom: 40px; */
-  margin-bottom: 7%;
-  line-height: 1.55;
+  margin-bottom: 12%;
+
+  /* line-height: 1.55;*/
 }
 
 
 
 /* ===== Спикеры ===== */
-.speakers {
-  padding: 60px 0 80px;
-  background: #fff;
-  color: #0E1849;
-}
-
-.slider {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.slider__track {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  flex: 1;
-  padding: 8px 0;
-}
-
-.slider__track::-webkit-scrollbar {
-  display: none;
-}
-
-.slider__slide {
-  flex: 0 0 calc(25% - 18px);
-  scroll-snap-align: start;
-  min-width: 200px;
-}
-
-.slider__btn {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid #d0d5dd;
-  background: #0B1A3A;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
-}
-
-.slider__btn:hover:not(:disabled) {
-  background: #fff;
-  color: #0B1A3A;
-  border-color: #0B1A3A;
-}
-
-.slider__btn:disabled {
-  cursor: default;
-}
-
-.speaker-card {
-  text-align: center;
-}
-
-.speaker-card__photo {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 16px;
-  background: #f0f0f0;
-}
-
-.speaker-card__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.speaker-card__name {
-  font-size: 16px;
-  font-weight: 700;
-  color: #0B1A3A;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-.speaker-card__position {
-  font-size: 13px;
-  color: #5a6475;
-  line-height: 1.4;
-}
-
-/* ===== Цели и задачи ===== */
-.goals {
-  position: relative;
-  background: #1E4D8C;
-/*   background-image: url('../img/back_goals.png'); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 80px 0 100px;
-  overflow: hidden;
-}
-
-.goals .container {
-  position: relative;
-  z-index: 2;
-}
-
-.goals__lead {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(16px, 2vw, 20px);
-  margin-bottom: 48px;
-  margin-top: -8px;
-  font-weight: 600;
-}
-
-.goals__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.goal-card {
-  background: #0B1A3A;
- /*  border-radius: 12px; */
-  padding: 28px 24px;
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-.title__card_new {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.goal-card__icon {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  color: #3B7EDC;
-}
-
-.goal-card__icon img,
-.goal-card__icon svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.goal-card__title {
-  font-size: clamp(15px, 1.5vw, 18px);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #3B7EDC;
-  line-height: 1.25;
-  margin: 0;
-}
-
-.goal-card__text {
-  font-size: 14px;
-  line-height: 1.55;
-  opacity: 0.85;
-}
-
-/* ===== Программа ===== */
-.program {
-  padding: 80px 0 100px;
-  background: #fff;
-  text-align: center;
-}
-
-.program__placeholder {
-  min-height: 80px;
-  margin-bottom: 32px;
-}
-
-.partners {
-  margin-top: 64px;
-}
-
-.partners__title {
-  font-size: clamp(20px, 3vw, 28px);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #0B1A3A;
-  margin-bottom: 28px;
-}
-
-.partners__logos {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.partner-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.partner-logo img {
-  height: 40px;
-  width: auto;
-}
-
-/* ===== Адресс и ОКЦ ===== */
-.location {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  min-height: 420px;
-}
-
-.location__info {
-  background: #0B1A3A;
-  color: #fff;
-  padding: 60px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.location__title {
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 800;
-  line-height: 1.25;
-  margin-bottom: 16px;
-}
-
-.location__address {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  opacity: 0.9;
-}
-
-.location__desc {
-  font-size: 14px;
-  opacity: 0.7;
-  line-height: 1.5;
-  max-width: 320px;
-}
-
-.location__map {
-  background: #1a2a40;
-  position: relative;
-  overflow: hidden;
-}
-
-.map-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-}
-
-.map-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ===== Слайдер ===== */
-.venue {
-  background: #0B1A3A;
-  padding: 48px 0 56px;
-}
-
-.slider--venue {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.slider--venue .slider__track {
-  gap: 16px;
-  padding: 0 12%;
-  scroll-padding: 0 12%;
-}
-
-.slider--venue .slider__slide {
-  flex: 0 0 52%;
-  min-width: 260px;
-  max-width: 520px;
-  border-radius: 12px;
-  overflow: hidden;
-  scroll-snap-align: center;
-  transition: opacity 0.35s ease, transform 0.35s ease;
-  opacity: 0.4;
-}
-
-/* ===== Чтобы в центре было главное и по бокам затемнение ===== */
-.slider--venue .slider__slide.is-center {
-  opacity: 1 !important;
-  transform: scale(1);
-}
-
-.slider--venue .slider__slide.is-side {
-  opacity: 0.4 !important;
-  transform: scale(0.96);
-}
-
-.slider--venue .slider__slide img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
-
-.slider--venue .slider__btn {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  z-index: 5;
-}
-
-.slider--venue .slider__btn:hover:not(:disabled) {
-  background: #fff;
-  color: #0B1A3A;
-  border-color: #fff;
-}
-
-/* ===== Подвал ===== */
-.footer {
-  background: #0B1A3A;
-  color: #fff;
-  padding: 60px 0;
-}
-
-.footer__inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.footer__logos {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-
-.footer__logos .logo {
-  height: 48px;
-  width: auto;
-  object-fit: contain;
-}
-
-.footer__contacts {
-  text-align: right;
-  max-width: 360px;
-}
-
-.footer__title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-
-.footer__text {
-  font-size: 13px;
-  opacity: 0.75;
-  margin-bottom: 16px;
-  line-height: 1.45;
-}
-
-.footer__email,
-.footer__phone {
-  display: block;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  transition: opacity 0.2s;
-}
-
-.footer__email:hover,
-.footer__phone:hover {
-  opacity: 0.8;
-}
-
-.footer__privacy {
-  display: inline-block;
-  font-size: 13px;
-  opacity: 0.6;
-  margin-top: 16px;
-  margin-bottom: 8px;
-  text-decoration: underline;
-}
-
-.footer__privacy:hover {
-  opacity: 1;
-}
-
-.footer__copy {
-  font-size: 12px;
-  opacity: 0.5;
-  margin-top: 8px;
-}
-
-/*********************************************************************************************************************/
-/* ===== Допы для программы ===== */
-.schedule {
-  max-width: 900px;
-  margin: 0 auto 20px;
-  position: relative;
-  padding-left: 0;
-}
-
-/* вертикальная линия */
-.schedule::before {
-  content: '';
-  position: absolute;
-  left: 152px;
-  /* центр колонки с точками */
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background: #D0D7E3;
-  z-index: 0;
-}
-
-.schedule__item {
-  display: grid;
-  grid-template-columns: 140px 24px 1fr;
-  column-gap: 0;
-  align-items: flex-start;
-  padding: 20px 0;
-  position: relative;
-  z-index: 1;
-}
-
-/* чередование фона */
-.schedule__item:nth-child(odd) {
-  /*  background: #F7F9FC; */
-  border-radius: 12px;
-  margin: 0 -16px;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.schedule__time {
-  text-align: right;
-  padding-right: 20px;
-  padding-top: 2px;
-}
-
-.schedule__hours {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #0B1A3A;
-  line-height: 1.3;
-}
-
-.schedule__hall {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  color: #8A94A6;
-  margin-top: 3px;
-  line-height: 1.3;
-}
-
-/* точка */
-.schedule__dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #0B1A3A;
-  border: 3px solid #FFFFFF;
-  box-shadow: 0 0 0 2px #0B1A3A;
-  margin-top: 5px;
-  justify-self: center;
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
-}
-
-/* вариант «кольцо» как на первом  */
-/*
+  .speakers {
+    padding: 60px 0 80px;
+    background: #fff;
+    color: #0E1849;
+  }
+
+  .slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .slider__track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex: 1;
+    padding: 8px 0;
+  }
+
+  .slider__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider__slide {
+    flex: 0 0 calc(25% - 18px);
+    scroll-snap-align: start;
+    min-width: 200px;
+  }
+
+  .slider__btn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #d0d5dd;
+    background: #0B1A3A;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+  }
+
+  .slider__btn:hover:not(:disabled) {
+    background: #fff;
+    color: #0B1A3A;
+    border-color: #0B1A3A;
+  }
+
+  .slider__btn:disabled {
+    cursor: default;
+  }
+
+  .speaker-card {
+    text-align: center;
+  }
+
+  .speaker-card__photo {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #f0f0f0;
+  }
+
+  .speaker-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .speaker-card__name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0B1A3A;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .speaker-card__position {
+    font-size: 13px;
+    color: #5a6475;
+    line-height: 1.4;
+  }
+
+  /* ===== Цели и задачи ===== */
+  .goals {
+    position: relative;
+    background: #1E4D8C;
+    /*   background-image: url('../img/back_goals.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0 100px;
+    overflow: hidden;
+  }
+
+  .goals .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .goals__lead {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(16px, 2vw, 20px);
+    margin-bottom: 48px;
+    margin-top: -8px;
+    font-weight: 600;
+  }
+
+  .goals__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .goal-card {
+    background: #0B1A3A;
+    /*  border-radius: 12px; */
+    padding: 28px 24px;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+
+  .title__card_new {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .goal-card__icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    color: #3B7EDC;
+  }
+
+  .goal-card__icon img,
+  .goal-card__icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .goal-card__title {
+    font-size: clamp(15px, 1.5vw, 18px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #3B7EDC;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .goal-card__text {
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.85;
+  }
+
+  /* ===== Программа ===== */
+  .program {
+    padding: 80px 0 100px;
+    background: #fff;
+    text-align: center;
+  }
+
+  .program__placeholder {
+    min-height: 80px;
+    margin-bottom: 32px;
+  }
+
+  .partners {
+    margin-top: 64px;
+  }
+
+  .partners__title {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0B1A3A;
+    margin-bottom: 28px;
+  }
+
+  .partners__logos {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .partner-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .partner-logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  /* ===== Адресс и ОКЦ ===== */
+  .location {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    min-height: 420px;
+  }
+
+  .location__info {
+    background: #0B1A3A;
+    color: #fff;
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .location__title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .location__address {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .location__desc {
+    font-size: 14px;
+    opacity: 0.7;
+    line-height: 1.5;
+    max-width: 320px;
+  }
+
+  .location__map {
+    background: #1a2a40;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+  }
+
+  .map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ===== Слайдер ===== */
+  .venue {
+    background: #0B1A3A;
+    padding: 48px 0 56px;
+  }
+
+  .slider--venue {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .slider--venue .slider__track {
+    gap: 16px;
+    padding: 0 12%;
+    scroll-padding: 0 12%;
+  }
+
+  .slider--venue .slider__slide {
+    flex: 0 0 52%;
+    min-width: 260px;
+    max-width: 520px;
+    border-radius: 12px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    opacity: 0.4;
+  }
+
+  /* ===== Чтобы в центре было главное и по бокам затемнение ===== */
+  .slider--venue .slider__slide.is-center {
+    opacity: 1 !important;
+    transform: scale(1);
+  }
+
+  .slider--venue .slider__slide.is-side {
+    opacity: 0.4 !important;
+    transform: scale(0.96);
+  }
+
+  .slider--venue .slider__slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .slider--venue .slider__btn {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    z-index: 5;
+  }
+
+  .slider--venue .slider__btn:hover:not(:disabled) {
+    background: #fff;
+    color: #0B1A3A;
+    border-color: #fff;
+  }
+
+  /* ===== Подвал ===== */
+  .footer {
+    background: #0B1A3A;
+    color: #fff;
+    padding: 60px 0;
+  }
+
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer__logos {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .footer__logos .logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .footer__contacts {
+    text-align: right;
+    max-width: 360px;
+  }
+
+  .footer__title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  .footer__text {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-bottom: 16px;
+    line-height: 1.45;
+  }
+
+  .footer__email,
+  .footer__phone {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    transition: opacity 0.2s;
+  }
+
+  .footer__email:hover,
+  .footer__phone:hover {
+    opacity: 0.8;
+  }
+
+  .footer__privacy {
+    display: inline-block;
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    text-decoration: underline;
+  }
+
+  .footer__privacy:hover {
+    opacity: 1;
+  }
+
+  .footer__copy {
+    font-size: 12px;
+    opacity: 0.5;
+    margin-top: 8px;
+  }
+
+  /*********************************************************************************************************************/
+  /* ===== Допы для программы ===== */
+  .schedule {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    position: relative;
+    padding-left: 0;
+  }
+
+  /* вертикальная линия */
+  .schedule::before {
+    content: '';
+    position: absolute;
+    left: 152px;
+    /* центр колонки с точками */
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: #D0D7E3;
+    z-index: 0;
+  }
+
+  .schedule__item {
+    display: grid;
+    grid-template-columns: 140px 24px 1fr;
+    column-gap: 0;
+    align-items: flex-start;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* чередование фона */
+  .schedule__item:nth-child(odd) {
+    /*  background: #F7F9FC; */
+    border-radius: 12px;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .schedule__time {
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 2px;
+  }
+
+  .schedule__hours {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0B1A3A;
+    line-height: 1.3;
+  }
+
+  .schedule__hall {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8A94A6;
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  /* точка */
+  .schedule__dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0B1A3A;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 2px #0B1A3A;
+    margin-top: 5px;
+    justify-self: center;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  /* вариант «кольцо» как на первом  */
+  /*
 .schedule__dot {
   width: 16px;
   height: 16px;
@@ -750,362 +759,362 @@ ol {
 }
 */
 
-.schedule__content {
-  padding-left: 20px;
-  padding-top: 1px;
-}
-
-.schedule__title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #0B1A3A;
-  line-height: 1.35;
-  margin-bottom: 6px;
-}
-
-.schedule__subtitle {
-  font-size: 14px;
-  font-weight: 600;
-  color: #0B1A3A;
-  line-height: 1.4;
-  margin-bottom: 6px;
-}
-
-.schedule__text {
-  font-size: 13px;
-  color: #5A6475;
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* ===== Адаптив программы ===== */
-@media (max-width: 700px) {
-  .schedule::before {
-    left: 7px;
+  .schedule__content {
+    padding-left: 20px;
+    padding-top: 1px;
   }
 
-  .schedule__item {
-    grid-template-columns: 16px 1fr;
-    column-gap: 16px;
-    padding: 18px 0;
-  }
-
-  .schedule__item:nth-child(odd) {
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    background: transparent;
-  }
-
-  .schedule__time {
-    grid-column: 2;
-    text-align: left;
-    padding-right: 0;
+  .schedule__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0B1A3A;
+    line-height: 1.35;
     margin-bottom: 6px;
   }
 
-  .schedule__dot {
-    grid-row: 1 / span 3;
-    margin-top: 6px;
-    width: 12px;
-    height: 12px;
-  }
-
-  .schedule__content {
-    grid-column: 2;
-    padding-left: 0;
-  }
-
-  .schedule__hours {
-    font-size: 13px;
-  }
-
-  .schedule__title {
-    font-size: 15px;
-  }
-}
-
-/* Адаптив */
-@media (max-width: 700px) {
-  .schedule::before {
-    left: 18px;
-  }
-
-  .schedule__item {
-/*     grid-template-columns: 24px 1fr; */
-    grid-template-columns: 38px 1fr;
-    gap: 0 14px;
-    padding: 16px 0 16px 0;
-  }
-
-  .schedule__item:nth-child(odd) {
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    background: transparent;
-  }
-
-  .schedule__time {
-    grid-column: 2;
-    text-align: left;
-    margin-bottom: 4px;
-    order: -1;
-  }
-
-  .schedule__dot {
-    grid-row: 1 / span 2;
-    margin-top: 6px;
-  }
-
-  .schedule__content {
-    grid-column: 2;
-  }
-
-  .schedule__hours {
-    font-size: 13px;
-  }
-
-  .schedule__title {
-    font-size: 15px;
-  }
-}
-
-
-/* ===== Адаптив ===== */
-@media (max-width: 1100px) {
-  .slider__slide {
-    flex: 0 0 calc(33.333% - 16px);
-  }
-
-  .slider--venue .slider__slide {
-    flex: 0 0 58%;
-  }
-
-  .slider--venue .slider__track {
-    padding: 0 8%;
-    scroll-padding: 0 8%;
-  }
-}
-
-@media (max-width: 900px) {
-  .location {
-    grid-template-columns: 1fr;
-  }
-
-  .location__info {
-    padding: 48px 28px;
-  }
-
-  .map-placeholder {
-    min-height: 320px;
-  }
-
-  .goals__grid {
-    gap: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 16px;
-  }
-
-  .hero {
-    padding-top: 28px;
-    min-height: auto;
-  }
-
-  .hero__logos {
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-
-  .hero__logos .logo {
-    height: 40px;
-  }
-
-  .logo--minstroy {
-    height: 46px;
-  }
-
-  .logo--roskap {
-    height: 44px;
-  }
-
-  .logo--crt {
-    height: 38px;
-  }
-
-  .hero__meta {
-    margin-bottom: 24px;
-  }
-
-  .hero__skyline {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    pointer-events: none;
-    height: 35vh;
-    /* высота полосы */
-    background-image: url('../img/hero_skyline.png');
-    background-repeat: repeat-x;
-    background-position: center bottom;
-    background-size: 25% auto;
-    /* растягивается по ширине, высота пропорциональна */
-  }
-
-  .hero__block_all {
-    padding-left: 14px;
-  }
-
-  .hero__date {
-    font-size: 15px;
-  }
-
-  .hero__place {
-    font-size: 12px;
-  }
-
-  .hero__subtitle {
-    margin-bottom: 32px;
-  }
-
-  .btn {
-    padding: 14px 32px;
+  .schedule__subtitle {
     font-size: 14px;
+    font-weight: 600;
+    color: #0B1A3A;
+    line-height: 1.4;
+    margin-bottom: 6px;
   }
 
-  .section-title {
-    font-size: clamp(24px, 5vw, 32px);
-    margin-bottom: 28px;
+  .schedule__text {
+    font-size: 13px;
+    color: #5A6475;
+    line-height: 1.55;
+    margin: 0;
   }
 
-  .speakers {
-    padding: 48px 0 60px;
+  /* ===== Адаптив программы ===== */
+  @media (max-width: 700px) {
+    .schedule::before {
+      left: 7px;
+    }
+
+    .schedule__item {
+      grid-template-columns: 16px 1fr;
+      column-gap: 16px;
+      padding: 18px 0;
+    }
+
+    .schedule__item:nth-child(odd) {
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+      background: transparent;
+    }
+
+    .schedule__time {
+      grid-column: 2;
+      text-align: left;
+      padding-right: 0;
+      margin-bottom: 6px;
+    }
+
+    .schedule__dot {
+      grid-row: 1 / span 3;
+      margin-top: 6px;
+      width: 12px;
+      height: 12px;
+    }
+
+    .schedule__content {
+      grid-column: 2;
+      padding-left: 0;
+    }
+
+    .schedule__hours {
+      font-size: 13px;
+    }
+
+    .schedule__title {
+      font-size: 15px;
+    }
   }
 
-  .slider__slide {
-    flex: 0 0 calc(50% - 12px);
-    min-width: 180px;
+  /* Адаптив */
+  @media (max-width: 700px) {
+    .schedule::before {
+      left: 18px;
+    }
+
+    .schedule__item {
+      /*     grid-template-columns: 24px 1fr; */
+      grid-template-columns: 38px 1fr;
+      gap: 0 14px;
+      padding: 16px 0 16px 0;
+    }
+
+    .schedule__item:nth-child(odd) {
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+      background: transparent;
+    }
+
+    .schedule__time {
+      grid-column: 2;
+      text-align: left;
+      margin-bottom: 4px;
+      order: -1;
+    }
+
+    .schedule__dot {
+      grid-row: 1 / span 2;
+      margin-top: 6px;
+    }
+
+    .schedule__content {
+      grid-column: 2;
+    }
+
+    .schedule__hours {
+      font-size: 13px;
+    }
+
+    .schedule__title {
+      font-size: 15px;
+    }
   }
 
-  .goals {
-    padding: 60px 0 70px;
+
+  /* ===== Адаптив ===== */
+  @media (max-width: 1100px) {
+    .slider__slide {
+      flex: 0 0 calc(33.333% - 16px);
+    }
+
+    .slider--venue .slider__slide {
+      flex: 0 0 58%;
+    }
+
+    .slider--venue .slider__track {
+      padding: 0 8%;
+      scroll-padding: 0 8%;
+    }
   }
 
-  .goals__grid {
-    grid-template-columns: 1fr;
+  @media (max-width: 900px) {
+    .location {
+      grid-template-columns: 1fr;
+    }
+
+    .location__info {
+      padding: 48px 28px;
+    }
+
+    .map-placeholder {
+      min-height: 320px;
+    }
+
+    .goals__grid {
+      gap: 16px;
+    }
   }
 
-  .goal-card {
-    padding: 22px 20px;
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 16px;
+    }
+
+    .hero {
+      padding-top: 28px;
+      min-height: auto;
+    }
+
+    .hero__logos {
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero__logos .logo {
+      height: 40px;
+    }
+
+    .logo--minstroy {
+      height: 46px;
+    }
+
+    .logo--roskap {
+      height: 44px;
+    }
+
+    .logo--crt {
+      height: 38px;
+    }
+
+    .hero__meta {
+      margin-bottom: 24px;
+    }
+
+    .hero__skyline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      pointer-events: none;
+      height: 35vh;
+      /* высота полосы */
+      background-image: url('../img/hero_skyline.png');
+      background-repeat: repeat-x;
+      background-position: center bottom;
+      background-size: 25% auto;
+      /* растягивается по ширине, высота пропорциональна */
+    }
+
+    .hero__block_all {
+      padding-left: 14px;
+    }
+
+    .hero__date {
+      font-size: 15px;
+    }
+
+    .hero__place {
+      font-size: 12px;
+    }
+
+    .hero__subtitle {
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 5vw, 32px);
+      margin-bottom: 28px;
+    }
+
+    .speakers {
+      padding: 48px 0 60px;
+    }
+
+    .slider__slide {
+      flex: 0 0 calc(50% - 12px);
+      min-width: 180px;
+    }
+
+    .goals {
+      padding: 60px 0 70px;
+    }
+
+    .goals__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .goal-card {
+      padding: 22px 20px;
+    }
+
+    .program {
+      padding: 60px 0 70px;
+    }
+
+    .partners__logos {
+      gap: 28px;
+    }
+
+    .slider--venue .slider__slide {
+      flex: 0 0 78%;
+      min-width: 240px;
+    }
+
+    .slider--venue .slider__track {
+      padding: 0 5%;
+      scroll-padding: 0 5%;
+    }
+
+    .slider--venue .slider__slide img {
+      height: 220px;
+    }
+
+    .slider__btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .footer {
+      padding: 48px 0;
+    }
+
+    .footer__inner {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer__contacts {
+      text-align: center;
+    }
+
+    .footer__logos {
+      justify-content: center;
+    }
   }
 
-  .program {
-    padding: 60px 0 70px;
-  }
+  @media (max-width: 480px) {
+    .hero__logos {
+      gap: 12px;
+    }
 
-  .partners__logos {
-    gap: 28px;
-  }
+    .hero__logos .logo {
+      height: 34px;
+    }
 
-  .slider--venue .slider__slide {
-    flex: 0 0 78%;
-    min-width: 240px;
-  }
+    .logo--minstroy {
+      height: 40px;
+    }
 
-  .slider--venue .slider__track {
-    padding: 0 5%;
-    scroll-padding: 0 5%;
-  }
+    .logo--roskap {
+      height: 38px;
+    }
 
-  .slider--venue .slider__slide img {
-    height: 220px;
-  }
+    .logo--crt {
+      height: 32px;
+    }
 
-  .slider__btn {
-    width: 40px;
-    height: 40px;
-  }
+    .hero__meta {
+      flex-direction: column;
+      gap: 8px;
+    }
 
-  .footer {
-    padding: 48px 0;
-  }
+    .hero__block_all {
+      border-left: none;
+      padding-left: 0;
+      text-align: center;
+    }
 
-  .footer__inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .hero__place {
+      text-align: center;
+    }
 
-  .footer__contacts {
-    text-align: center;
-  }
+    .empty {
+      display: none;
+    }
 
-  .footer__logos {
-    justify-content: center;
-  }
-}
+    .slider__slide {
+      flex: 0 0 82%;
+    }
 
-@media (max-width: 480px) {
-  .hero__logos {
-    gap: 12px;
-  }
+    .slider--venue .slider__slide {
+      flex: 0 0 86%;
+    }
 
-  .hero__logos .logo {
-    height: 34px;
-  }
+    .slider--venue .slider__slide img {
+      height: 200px;
+    }
 
-  .logo--minstroy {
-    height: 40px;
-  }
+    .location__title {
+      font-size: 22px;
+    }
 
-  .logo--roskap {
-    height: 38px;
+    .partners__title {
+      font-size: 18px;
+    }
   }
-
-  .logo--crt {
-    height: 32px;
-  }
-
-  .hero__meta {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .hero__block_all {
-    border-left: none;
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .hero__place {
-    text-align: center;
-  }
-
-  .empty {
-    display: none;
-  }
-
-  .slider__slide {
-    flex: 0 0 82%;
-  }
-
-  .slider--venue .slider__slide {
-    flex: 0 0 86%;
-  }
-
-  .slider--venue .slider__slide img {
-    height: 200px;
-  }
-
-  .location__title {
-    font-size: 22px;
-  }
-
-  .partners__title {
-    font-size: 18px;
-  }
-}
