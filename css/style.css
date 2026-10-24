@@ -345,7 +345,7 @@ ol {
 .goals {
   position: relative;
   background: #1E4D8C;
-  background-image: url('../img/back_goals.png');
+/*   background-image: url('../img/back_goals.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -377,9 +377,10 @@ ol {
 
 .goal-card {
   background: #0B1A3A;
-  border-radius: 12px;
+ /*  border-radius: 12px; */
   padding: 28px 24px;
   color: #fff;
+  border: 1px solid #fff;
 }
 
 .title__card_new {
@@ -831,7 +832,8 @@ ol {
   }
 
   .schedule__item {
-    grid-template-columns: 24px 1fr;
+/*     grid-template-columns: 24px 1fr; */
+    grid-template-columns: 38px 1fr;
     gap: 0 14px;
     padding: 16px 0 16px 0;
   }
