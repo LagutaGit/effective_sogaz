@@ -87,21 +87,46 @@ ol {
 /* ===== HERO Блок ===== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 75vh;
   background: #0B1A3A;
+  /* запасной цвет, если картинки не загрузятся */
   color: #fff;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   padding-top: 40px;
-  padding-bottom: 0;
 }
 
+/* 1. Паттерн зданий — на весь hero */
 .hero__pattern {
   position: absolute;
   inset: 0;
-  background: url('../img/back_full.png') center/cover no-repeat;
+  z-index: 0;
   pointer-events: none;
+
+  background-image: url('../img/pattern.png');
+  background-repeat: repeat;
+  /* или no-repeat, если картинка большая */
+  background-position: center top;
+  background-size: 900px auto;
+  /* подбери под свою картинку */
+  opacity: 1;
+}
+
+.hero__skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  height: 35vh;
+  /* высота полосы */
+  background-image: url('../img/hero_skyline.png');
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  background-size: 10% auto;
+  /* растягивается по ширине, высота пропорциональна */
 }
 
 .hero .container {
@@ -109,11 +134,12 @@ ol {
   z-index: 2;
   flex: 1;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 65px;
 }
 
 .hero__logos {
@@ -215,19 +241,11 @@ ol {
   opacity: 0.85;
   max-width: 640px;
   /* margin-bottom: 40px; */
-  margin-bottom: 25%;
+  margin-bottom: 7%;
   line-height: 1.55;
 }
 
-.hero__skyline {
-  position: relative;
-  z-index: 2;
-  height: 180px;
-  background-image: url('../img/hero_skyline.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
-}
+
 
 /* ===== Спикеры ===== */
 .speakers {
@@ -524,6 +542,7 @@ ol {
   transition: opacity 0.35s ease, transform 0.35s ease;
   opacity: 0.4;
 }
+
 /* ===== Чтобы в центре было главное и по бокам затемнение ===== */
 .slider--venue .slider__slide.is-center {
   opacity: 1 !important;
@@ -917,6 +936,22 @@ ol {
 
   .hero__meta {
     margin-bottom: 24px;
+  }
+
+  .hero__skyline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    height: 35vh;
+    /* высота полосы */
+    background-image: url('../img/hero_skyline.png');
+    background-repeat: repeat-x;
+    background-position: center bottom;
+    background-size: 25% auto;
+    /* растягивается по ширине, высота пропорциональна */
   }
 
   .hero__block_all {
