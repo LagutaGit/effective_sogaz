@@ -93,3 +93,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// ===== POPUP =====
+(function () {
+  const popup = document.getElementById('regPopup');
+  if (!popup) return;
+
+  const openBtns = document.querySelectorAll('.js-open-popup');
+  const closeEls = popup.querySelectorAll('[data-close]');
+
+  function openPopup() {
+    popup.classList.add('is-open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('popup-open');
+  }
+
+  function closePopup() {
+    popup.classList.remove('is-open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('popup-open');
+  }
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup();
+    });
+  });
+
+  closeEls.forEach(el => {
+    el.addEventListener('click', closePopup);
+  });
+
+  // закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popup.classList.contains('is-open')) {
+      closePopup();
+    }
+  });
+})();
