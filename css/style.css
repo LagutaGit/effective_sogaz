@@ -108,7 +108,7 @@ ol {
   background-repeat: repeat;
   /* или no-repeat, если картинка большая */
   background-position: center top;
-  background-size: 900px auto;
+  /* background-size: 900px auto; */
   /* подбери под свою картинку */
   opacity: 1;
 }
@@ -1151,10 +1151,10 @@ ol {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 680px;          /* ширина под форму Яндекса */
+  max-width: 540px;          /* ширина под форму Яндекса */
   max-height: 90vh;
   background: #fff;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
