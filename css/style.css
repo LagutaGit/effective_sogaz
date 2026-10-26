@@ -108,7 +108,7 @@ ol {
   background-repeat: repeat;
   /* или no-repeat, если картинка большая */
   background-position: center top;
-  /* background-size: 900px auto; */
+  background-size: contain;
   /* подбери под свою картинку */
   opacity: 1;
 }
@@ -1121,6 +1121,7 @@ ol {
   }
 }
 
+
 /* ===== POPUP ===== */
 .popup {
   position: fixed;
@@ -1129,7 +1130,7 @@ ol {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease, visibility 0.25s ease;
@@ -1151,17 +1152,16 @@ ol {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 540px;          /* ширина под форму Яндекса */
-  max-height: 90vh;
+  max-width: 680px;
+  max-height: 92vh;
   background: #fff;
-  /* border-radius: 16px; */
+  border-radius: 16px;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transform: translateY(12px) scale(0.98);
   transition: transform 0.25s ease;
-  
 }
 
 .popup.is-open .popup__window {
@@ -1170,8 +1170,8 @@ ol {
 
 .popup__close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   z-index: 5;
   width: 40px;
   height: 40px;
@@ -1194,27 +1194,25 @@ ol {
 
 .popup__body {
   padding: 0;
-  overflow: hidden;
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  min-height: 0;
+  overflow: hidden;
 }
 
 .popup__iframe-wrap {
   width: 100%;
   flex: 1;
-  min-height: 520px;
-  max-height: 85vh;
-  overflow: auto;
+  min-height: 0;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .popup__iframe-wrap iframe {
   display: block;
   width: 100% !important;
-  min-height: 700px;         /* высота формы Яндекса */
-  height: 100%;
+  height: 900px;           /* полная высота формы Яндекса */
   border: 0;
 }
 
@@ -1222,7 +1220,7 @@ body.popup-open {
   overflow: hidden;
 }
 
-/* Адаптив */
+/* ===== Мобилка ===== */
 @media (max-width: 700px) {
   .popup {
     padding: 0;
@@ -1231,6 +1229,8 @@ body.popup-open {
 
   .popup__window {
     max-width: 100%;
+    width: 100%;
+    height: 94vh;          /* почти весь экран */
     max-height: 94vh;
     border-radius: 16px 16px 0 0;
     transform: translateY(100%);
@@ -1241,18 +1241,19 @@ body.popup-open {
   }
 
   .popup__close {
-    top: 10px;
-    right: 10px;
+    top: 8px;
+    right: 8px;
     width: 36px;
     height: 36px;
   }
 
   .popup__iframe-wrap {
-    min-height: 60vh;
-    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .popup__iframe-wrap iframe {
-    min-height: 640px;
+    height: 1100px;        /* чтобы кнопка точно была внутри */
+    min-height: 1100px;
   }
 }
