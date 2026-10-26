@@ -41,7 +41,8 @@
         заказчиков, поставщиков <br> и подрядчиков строительной отрасли
       </p>
 
-      <a href="#registration" class="btn btn--primary">Регистрация участников</a>
+      <a href="#registration" class="btn btn--primary js-open-popup">Регистрация участников</a>
+
     </div>
   </header>
 
@@ -331,19 +332,20 @@
         </div>
       </div>
 
-      <a href="#registration" class="btn btn--primary" style="margin-top: 48px;">Регистрация участников</a>
+      <a href="#registration" class="btn btn--primary js-open-popup">Регистрация участников</a>
 
       <div class="partners">
         <h3 class="partners__title">ПАРТНЕР</h3>
         <div class="partners__logos">
           <div class="partner-logo">
-            <a href="https://1exon.ru/" target="_blank" rel="noopener noreferrer"><img src="./img/partner_exo.svg" alt="Экзон"></a>
-            
+            <a href="https://1exon.ru/" target="_blank" rel="noopener noreferrer"><img src="./img/partner_exo.svg"
+                alt="Экзон"></a>
+
           </div>
-      
-          </div>
+
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -363,7 +365,9 @@
             alt="Карта" style="border:0;">
         </a>
       </div> -->
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A576a85c8bef7d497412a2a0dec1cd2e230527e8beff6eac31247493af25b5872&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?um=constructor%3A576a85c8bef7d497412a2a0dec1cd2e230527e8beff6eac31247493af25b5872&amp;source=constructor"
+        width="100%" height="400" frameborder="0"></iframe>
     </div>
   </section>
 
@@ -424,7 +428,25 @@
       </div>
     </div>
   </footer>
+  <!-- POPUP — должен быть здесь, в конце body -->
+  <div class="popup" id="regPopup" aria-hidden="true">
+    <div class="popup__overlay" data-close></div>
+    <div class="popup__window" role="dialog" aria-modal="true" aria-label="Регистрация">
+      <button class="popup__close" type="button" aria-label="Закрыть" data-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="popup__body">
+        <div class="popup__iframe-wrap">
+          <!-- <iframe src="..." frameborder="0" allowfullscreen></iframe> -->
+          <p class="popup__placeholder">Форма регистрации</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <script src="js/slider.js"></script>
   <script src="js/slider.js"></script>
 </body>
 
