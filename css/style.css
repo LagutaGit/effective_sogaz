@@ -108,7 +108,8 @@ ol {
   background-repeat: repeat;
   /* или no-repeat, если картинка большая */
   background-position: center top;
-  background-size: contain;
+  /* background-size: contain; */
+  background-size: 100%;
   /* подбери под свою картинку */
   opacity: 1;
 }
