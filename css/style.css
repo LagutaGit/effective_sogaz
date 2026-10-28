@@ -169,6 +169,10 @@ ol {
   height: 52px;
 }
 
+.logogo {
+  width: 190px;
+}
+
 .hero__meta {
   display: flex;
   align-items: center;
