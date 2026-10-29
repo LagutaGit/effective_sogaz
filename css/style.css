@@ -272,7 +272,7 @@ ol {
 .slider {
   position: relative;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   gap: 12px;
 }
 
@@ -308,7 +308,7 @@ ol {
   background: #0B1A3A;
   color: #fff;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   margin-top: 10%;
   justify-content: center;
   cursor: pointer;
@@ -1612,6 +1612,7 @@ body.popup-open {
     width: 38px;
     height: 38px;
     top: 35%;
+    
   }
 
   .slider--how .slider__btn--prev {
