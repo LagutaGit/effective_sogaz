@@ -286,6 +286,7 @@ ol {
   scrollbar-width: none;
   flex: 1;
   padding: 8px 0;
+  height: 450px;
 }
 
 .slider__track::-webkit-scrollbar {
@@ -769,6 +770,7 @@ ol {
 .schedule__content {
   padding-left: 20px;
   padding-top: 1px;
+  text-align: left;
 }
 
 .schedule__title {
@@ -1217,7 +1219,8 @@ ol {
 .popup__iframe-wrap iframe {
   display: block;
   width: 100% !important;
-  height: 900px;           /* полная высота формы Яндекса */
+  height: 900px;
+  /* полная высота формы Яндекса */
   border: 0;
 }
 
@@ -1235,7 +1238,8 @@ body.popup-open {
   .popup__window {
     max-width: 100%;
     width: 100%;
-    height: 94vh;          /* почти весь экран */
+    height: 94vh;
+    /* почти весь экран */
     max-height: 94vh;
     border-radius: 16px 16px 0 0;
     transform: translateY(100%);
@@ -1258,7 +1262,353 @@ body.popup-open {
   }
 
   .popup__iframe-wrap iframe {
-    height: 1100px;        /* чтобы кнопка точно была внутри */
+    height: 1100px;
+    /* чтобы кнопка точно была внутри */
     min-height: 1100px;
+  }
+}
+
+/* Добавил новое от 29.10.2026 11:25 */
+/* ===== GUESTS INFO ===== */
+.guests {
+  position: relative;
+  background: #3B7EDC;
+  padding: 64px 0;
+  overflow: hidden;
+}
+
+.guests__pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('../img/pattern.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 700px auto;
+  opacity: 0.25;
+}
+
+.guests__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.guests__title {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin: 0;
+  max-width: 320px;
+}
+
+.guests__cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.guests-card {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+.guests-card__img {
+  width: 120px;
+  height: 120px;
+  background: #E8EBEF;
+  border-radius: 16px;
+  /* когда будут картинки:
+  background: url('../img/guest-1.jpg') center/cover no-repeat;
+  */
+}
+
+.guests-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  background: #0B1A3A;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.guests-card:hover .guests-card__btn {
+  background: #152a55;
+  transform: translateY(-1px);
+}
+
+/* Hotels popup specifics */
+.popup--hotels .popup__window--hotels {
+  max-width: 480px;
+  max-height: 90vh;
+}
+
+.popup__body--hotels {
+  padding: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hotels-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-card {
+  background: #3B7EDC;
+  color: #fff;
+  padding: 28px 24px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hotel-card:last-child {
+  border-bottom: none;
+}
+
+.hotel-card__name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.hotel-card__text {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.95;
+  margin-bottom: 16px;
+}
+
+.hotel-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: #0B1A3A;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.hotel-card__btn:hover {
+  background: #152a55;
+}
+
+/* Адаптив guests */
+@media (max-width: 900px) {
+  .guests__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .guests__cards {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .guests {
+    padding: 48px 0;
+  }
+
+  .guests__cards {
+    gap: 16px;
+  }
+
+  .guests-card {
+    width: 110px;
+  }
+
+  .guests-card__img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .guests-card__btn {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+
+  .popup--hotels .popup__window--hotels {
+    max-width: 100%;
+    max-height: 94vh;
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+
+
+
+/* ===== HOW IT WAS ===== */
+.how {
+  background: #0B1A3A;
+  padding: 64px 0;
+  overflow: hidden;
+}
+
+.how__inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.how__title {
+  flex-shrink: 0;
+  width: 180px;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.slider--how {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.slider--how .slider__track {
+  display: flex;
+  gap: 0;
+  /* без зазора — второе фото не видно */
+  overflow-x: hidden;
+  /* важно: не auto, а hidden */
+  scroll-behavior: smooth;
+  flex: 1;
+  width: 100%;
+}
+
+/* ровно одно фото на всю ширину трека */
+.slider--how .slider__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.slider--how .slider__slide img {
+  /* width: 100%; */
+  width: 100%;
+  /*   height: 360px; */
+  object-fit: cover;
+  display: block;
+}
+
+/* кнопки поверх фото */
+.slider--how .slider__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(11, 26, 58, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.slider--how .slider__btn--prev {
+  left: 12px;
+}
+
+.slider--how .slider__btn--next {
+  right: 12px;
+}
+
+.slider--how .slider__btn:hover {
+  background: #fff;
+  color: #0B1A3A;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 900px) {
+  .how {
+    padding: 48px 0;
+  }
+
+  .how__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .how__title {
+    width: auto;
+  }
+
+  .slider--how {
+    width: 100%;
+  }
+
+  .slider--how .slider__slide img {
+    /*  height: 260px; */
+  }
+
+  .slider__track {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .how {
+    padding: 40px 0;
+  }
+
+  .slider--how .slider__slide img {
+    height: 220px;
+  }
+
+  .slider--how .slider__btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .slider--how .slider__btn--prev {
+    left: 8px;
+  }
+
+  .slider--how .slider__btn--next {
+    right: 8px;
   }
 }
