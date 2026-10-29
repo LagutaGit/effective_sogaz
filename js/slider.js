@@ -1,98 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const sliders = document.querySelectorAll('[data-slider]');
+  document.querySelectorAll('[data-slider]').forEach(initSlider);
+});
 
-  sliders.forEach(slider => {
-    const track = slider.querySelector('.slider__track');
-    const prevBtn = slider.querySelector('.slider__btn--prev');
-    const nextBtn = slider.querySelector('.slider__btn--next');
-    const slides = Array.from(track.querySelectorAll('.slider__slide'));
-    const isVenue = slider.classList.contains('slider--venue') || slider.dataset.slider === 'venue';
+function initSlider(slider) {
+  const track = slider.querySelector('.slider__track');
+  const prevBtn = slider.querySelector('.slider__btn--prev');
+  const nextBtn = slider.querySelector('.slider__btn--next');
+  const slides = Array.from(track?.querySelectorAll('.slider__slide') || []);
 
-    if (!track || !prevBtn || !nextBtn || slides.length === 0) return;
+  if (!track || !prevBtn || !nextBtn || slides.length === 0) return;
 
-    const getGap = () => {
-      const style = getComputedStyle(track);
-      return parseFloat(style.gap) || 20;
-    };
+  const isVenue = slider.classList.contains('slider--venue');
+  let index = 0;
 
-    const getSlideWidth = () => slides[0].offsetWidth;
+  const getGap = () => parseFloat(getComputedStyle(track).gap) || 16;
 
-    const scrollByOne = (dir) => {
-      const amount = getSlideWidth() + getGap();
-      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
-    };
+  const goTo = (i) => {
+    index = Math.max(0, Math.min(i, slides.length - 1));
+    const gap = getGap();
+    const slideW = slides[0].offsetWidth;
+    const left = index * (slideW + gap);
+    track.scrollTo({ left, behavior: 'smooth' });
+    updateUI();
+  };
 
-    prevBtn.addEventListener('click', () => scrollByOne(-1));
-    nextBtn.addEventListener('click', () => scrollByOne(1));
+  const updateUI = () => {
+    prevBtn.style.opacity = index <= 0 ? '0.35' : '1';
+    nextBtn.style.opacity = index >= slides.length - 1 ? '0.35' : '1';
 
-    // Center-focus + opacity for venue slider
-    const updateCenterMode = () => {
-      if (!isVenue) return;
-
-      const trackRect = track.getBoundingClientRect();
-      const trackCenter = trackRect.left + trackRect.width / 2;
-
-      let closest = null;
-      let closestDist = Infinity;
-
-      slides.forEach(slide => {
-        const rect = slide.getBoundingClientRect();
-        const slideCenter = rect.left + rect.width / 2;
-        const dist = Math.abs(slideCenter - trackCenter);
-
-        slide.classList.remove('is-center', 'is-side');
-
-        if (dist < closestDist) {
-          closestDist = dist;
-          closest = slide;
-        }
-      });
-
-      slides.forEach(slide => {
-        if (slide === closest) {
+    if (isVenue) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
           slide.classList.add('is-center');
+          slide.classList.remove('is-side');
           slide.style.opacity = '1';
         } else {
           slide.classList.add('is-side');
+          slide.classList.remove('is-center');
           slide.style.opacity = '0.4';
         }
       });
-    };
+    }
+  };
 
-    const updateButtons = () => {
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      const atStart = track.scrollLeft <= 5;
-      const atEnd = track.scrollLeft >= maxScroll - 5;
-      prevBtn.style.opacity = atStart ? '0.35' : '1';
-      nextBtn.style.opacity = atEnd ? '0.35' : '1';
-      prevBtn.disabled = atStart;
-      nextBtn.disabled = atEnd;
-    };
-
-    const onScroll = () => {
-      updateButtons();
-      updateCenterMode();
-    };
-
-    track.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => {
-      updateButtons();
-      updateCenterMode();
-    });
-
-    // Initial state
-    updateButtons();
-    requestAnimationFrame(() => {
-      updateCenterMode();
-      if (isVenue && slides.length > 2) {
-        // Start with second slide roughly centered
-        const amount = getSlideWidth() + getGap();
-        track.scrollTo({ left: amount, behavior: 'instant' });
-        setTimeout(updateCenterMode, 60);
-      }
-    });
+  prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    goTo(index - 1);
   });
-});
+
+  nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    goTo(index + 1);
+  });
+
+  // синхронизация при ручном свайпе
+  let scrollTimer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const gap = getGap();
+      const slideW = slides[0].offsetWidth;
+      const newIndex = Math.round(track.scrollLeft / (slideW + gap));
+      if (newIndex !== index) {
+        index = Math.max(0, Math.min(newIndex, slides.length - 1));
+        updateUI();
+      }
+    }, 80);
+  }, { passive: true });
+
+  window.addEventListener('resize', () => goTo(index));
+
+  // старт
+  track.scrollTo({ left: 0, behavior: 'instant' });
+  updateUI();
+}
 
 // ===== POPUP =====
 (function () {
@@ -126,6 +109,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popup.classList.contains('is-open')) {
+      closePopup();
+    }
+  });
+})();
+
+/* Добавил новое от 29.10.2026 11:25
+ */
+// ===== HOTELS POPUP =====
+(function () {
+  const popup = document.getElementById('hotelsPopup');
+  if (!popup) return;
+
+  const openBtns = document.querySelectorAll('.js-open-hotels');
+  const closeEls = popup.querySelectorAll('[data-close-hotels]');
+
+  function openPopup() {
+    popup.classList.add('is-open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('popup-open');
+  }
+
+  function closePopup() {
+    popup.classList.remove('is-open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('popup-open');
+  }
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup();
+    });
+  });
+
+  closeEls.forEach(el => {
+    el.addEventListener('click', closePopup);
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && popup.classList.contains('is-open')) {
       closePopup();
