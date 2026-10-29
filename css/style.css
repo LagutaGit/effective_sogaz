@@ -272,7 +272,7 @@ ol {
 .slider {
   position: relative;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   gap: 12px;
 }
 
@@ -309,7 +309,6 @@ ol {
   color: #fff;
   display: flex;
   align-items: center;
-  margin-top: 10%;
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, opacity 0.2s;
@@ -493,7 +492,6 @@ ol {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 40%;
 }
 
 .location__title {
@@ -914,7 +912,6 @@ ol {
 
   .location__info {
     padding: 48px 28px;
-    
   }
 
   .map-placeholder {
@@ -924,15 +921,9 @@ ol {
   .goals__grid {
     gap: 16px;
   }
-  .nones{
-    display: none;
-  }
 }
 
 @media (max-width: 768px) {
-  .slider{
-    align-items: center;
-  }
   .container {
     padding: 0 16px;
   }
@@ -1041,7 +1032,6 @@ ol {
   .slider--venue .slider__slide {
     flex: 0 0 78%;
     min-width: 240px;
-    opacity: 1;
   }
 
   .slider--venue .slider__track {
@@ -1056,8 +1046,6 @@ ol {
   .slider__btn {
     width: 40px;
     height: 40px;
-    align-items: center;
-    margin-bottom: 50%;
   }
 
   .footer {
@@ -1452,7 +1440,7 @@ body.popup-open {
   }
 
   .guests__cards {
-    gap: 15px;
+    gap: 16px;
   }
 
   .guests-card {
@@ -1614,8 +1602,6 @@ body.popup-open {
   .slider--how .slider__btn {
     width: 38px;
     height: 38px;
-    top: 35%;
-    
   }
 
   .slider--how .slider__btn--prev {
