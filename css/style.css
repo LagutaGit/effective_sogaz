@@ -924,6 +924,9 @@ ol {
   .goals__grid {
     gap: 16px;
   }
+  .nones{
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
