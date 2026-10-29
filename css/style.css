@@ -1607,6 +1607,7 @@ body.popup-open {
   .slider--how .slider__btn {
     width: 38px;
     height: 38px;
+    top: 35%;
   }
 
   .slider--how .slider__btn--prev {
