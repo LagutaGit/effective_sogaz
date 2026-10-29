@@ -290,7 +290,7 @@ ol {
   scrollbar-width: none;
   flex: 1;
   padding: 8px 0;
-  height: 450px;
+ /*  height: 450px; */
 }
 
 .slider__track::-webkit-scrollbar {
