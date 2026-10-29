@@ -930,6 +930,9 @@ ol {
 }
 
 @media (max-width: 768px) {
+  .slider{
+    align-items: center;
+  }
   .container {
     padding: 0 16px;
   }
