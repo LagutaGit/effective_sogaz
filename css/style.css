@@ -492,6 +492,7 @@ ol {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 40%;
 }
 
 .location__title {
@@ -912,6 +913,7 @@ ol {
 
   .location__info {
     padding: 48px 28px;
+    
   }
 
   .map-placeholder {
