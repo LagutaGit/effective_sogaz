@@ -308,7 +308,8 @@ ol {
   background: #0B1A3A;
   color: #fff;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  margin-top: 10%;
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, opacity 0.2s;
@@ -1048,6 +1049,8 @@ ol {
   .slider__btn {
     width: 40px;
     height: 40px;
+    align-items: center;
+    margin: 0;
   }
 
   .footer {
