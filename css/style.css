@@ -43,6 +43,10 @@ ol {
   padding: 0 24px;
 }
 
+.h__100{
+  height: auto;
+}
+
 /* ===== По кнопкам ===== */
 .btn {
   display: inline-flex;
