@@ -1035,6 +1035,7 @@ ol {
   .slider--venue .slider__slide {
     flex: 0 0 78%;
     min-width: 240px;
+    opacity: 1;
   }
 
   .slider--venue .slider__track {
