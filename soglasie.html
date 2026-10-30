@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Согласие на обработку персональных данных — Эффективный госзаказ</title>
+  <link rel="icon" type="image/svg+xml" href="./img/icon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== Страница согласия (локальные стили в духе проекта) ===== */
+    .consent-hero {
+      position: relative;
+      background: #0B1A3A;
+      color: #fff;
+      overflow: hidden;
+      padding: 48px 0 56px;
+    }
+
+    .consent-hero__pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url('../img/pattern.png');
+      background-repeat: repeat;
+      background-position: center top;
+      opacity: 1;
+    }
+
+    .consent-hero .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .consent-hero__logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .consent-hero__logos .logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .consent-hero__logos .logo--minstroy { height: 56px; }
+    .consent-hero__logos .logo--roskap { height: 52px; }
+    .consent-hero__logos .logo--crt { height: 44px; }
+    .consent-hero__logos .logogo { width: 160px; }
+
+    .consent-hero__title {
+      font-size: clamp(24px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      max-width: 900px;
+      margin-bottom: 12px;
+    }
+
+    .consent-hero__subtitle {
+      font-size: clamp(14px, 1.8vw, 17px);
+      opacity: 0.85;
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    /* ===== Тело документа ===== */
+    .consent {
+      padding: 64px 0 80px;
+      background: #fff;
+    }
+
+    .consent__inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .consent__lead {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #1a1a2e;
+      margin-bottom: 24px;
+    }
+
+    .consent__lead strong {
+      color: #0B1A3A;
+    }
+
+    .consent__site {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0B1A3A;
+      background: #EEF3FB;
+      border: 1px solid #D0DCEC;
+      border-radius: 6px;
+      padding: 8px 14px;
+      margin-bottom: 32px;
+    }
+
+    .consent__site a {
+      color: #3B7EDC;
+      text-decoration: underline;
+    }
+
+    /* Карточка оператора */
+    .consent-operator {
+      background: #0B1A3A;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .consent-operator__label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #3B7EDC;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .consent-operator p {
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    /* Пункты документа */
+    .consent-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      column-gap: 16px;
+      padding: 24px 0;
+      border-top: 1px solid #E3E8F0;
+    }
+
+    .consent-item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .consent-item__num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #0B1A3A;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .consent-item__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0B1A3A;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .consent-item__text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #3d4658;
+      margin: 0;
+    }
+
+    .consent-item__text a {
+      color: #3B7EDC;
+      text-decoration: underline;
+    }
+
+    /* Блок возврата */
+    .consent__back {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 600px) {
+      .consent {
+        padding: 48px 0 64px;
+      }
+
+      .consent-item {
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+      }
+
+      .consent-operator {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ШАПКА -->
+  <header class="consent-hero">
+    <div class="consent-hero__pattern"></div>
+    <div class="container">
+      <div class="consent-hero__logos">
+        <img src="img/logo1.svg" alt="Министерство строительства и архитектуры Амурской области"
+          class="logo logo--minstroy">
+        <img src="img/logo2.svg" alt="ФАУ Роскапстрой" class="logo logo--roskap">
+        <img src="img/logo3.svg" alt="ЦРТ — Центр развития территорий" class="logo logo--crt">
+        <img class="logogo" src="img/logo4.svg" alt="Вертикаль" class="logo logo--crt">
+      </div>
+
+      <h1 class="consent-hero__title">СОГЛАСИЕ<br>НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+      <p class="consent-hero__subtitle">участника III Всероссийской стратегической сессии
+        «Эффективный госзаказ: цифровизация, практика, диалог»</p>
+    </div>
+  </header>
+
+  <!-- ТЕЛО ДОКУМЕНТА -->
+  <main class="consent">
+    <div class="container consent__inner">
+
+      <p class="consent__lead">
+        Я, субъект персональных данных, заполняющий форму регистрации на сайте
+        <strong>https://egz-session.ru/</strong>, в соответствии со статьёй 9 Федерального закона от 27.07.2006
+        №&nbsp;152-ФЗ «О персональных данных» свободно, своей волей и в своём интересе даю согласие следующему
+        оператору:
+      </p>
+
+      <div class="consent__site">
+        Сайт: <a href="https://egz-session.ru/" target="_blank" rel="noopener noreferrer">https://egz-session.ru/</a>
+        &nbsp;·&nbsp; Версия от 30.10.2026
+      </div>
+
+      <div class="consent-operator">
+        <div class="consent-operator__label">Оператор</div>
+        <p>Министерство строительства и архитектуры Амурской области, ИНН 2801246458; ОГРН 1192801000017, адрес:
+          675004, Амурская область, г.&nbsp;о. Город Благовещенск, г.&nbsp;Благовещенск, ул.&nbsp;Зейская, д.&nbsp;227;
+          e-mail: egzsession@amururban.ru (далее — Оператор).</p>
+      </div>
+
+      <!-- 1 -->
+      <article class="consent-item">
+        <div class="consent-item__num">1</div>
+        <div>
+          <h2 class="consent-item__title">Сведения о субъекте</h2>
+          <p class="consent-item__text">Фамилия, имя, отчество и адрес электронной почты указываются мной в форме
+            регистрации. Они идентифицируют меня как субъекта, давшего согласие.</p>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="consent-item">
+        <div class="consent-item__num">2</div>
+        <div>
+          <h2 class="consent-item__title">Цель обработки</h2>
+          <p class="consent-item__text">Регистрация меня как участника Мероприятия (18 ноября 2026&nbsp;г., г.&nbsp;Благовещенск);
+            подтверждение регистрации; информирование об организации и проведении Мероприятия (программа, место, время,
+            изменения); формирование списка участников и бейджей; допуск на площадку.</p>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="consent-item">
+        <div class="consent-item__num">3</div>
+        <div>
+          <h2 class="consent-item__title">Перечень персональных данных</h2>
+          <p class="consent-item__text">Фамилия, имя, отчество; номер телефона; адрес электронной почты; наименование
+            организации; должность; регион участника.</p>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="consent-item">
+        <div class="consent-item__num">4</div>
+        <div>
+          <h2 class="consent-item__title">Действия с данными и способы обработки</h2>
+          <p class="consent-item__text">Сбор, запись, систематизация, накопление, хранение, уточнение (обновление,
+            изменение), извлечение, использование, блокирование, удаление, уничтожение. Обработка осуществляется с
+            использованием средств автоматизации (сервис «Яндекс Формы», электронная почта) и без них. Данные передаются
+            сервису «Яндекс Формы» (ООО «Яндекс») для хранения ответов по поручению Оператора. Иным лицам данные не
+            передаются.</p>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="consent-item">
+        <div class="consent-item__num">5</div>
+        <div>
+          <h2 class="consent-item__title">Срок действия согласия и отзыв</h2>
+          <p class="consent-item__text">Согласие действует до достижения цели обработки, но не дольше 1 месяца с даты
+            проведения Мероприятия. Согласие можно отозвать в любой момент: направьте сообщение на
+            <a href="mailto:egzsession@amururban.ru">egzsession@amururban.ru</a> с темой «Отзыв согласия на обработку
+            персональных данных», указав ФИО и адрес электронной почты, использованный при регистрации. После отзыва
+            Оператор прекращает обработку и уничтожает данные в срок, установленный законом, если нет иных законных
+            оснований для хранения.</p>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="consent-item">
+        <div class="consent-item__num">6</div>
+        <div>
+          <h2 class="consent-item__title">Подтверждение</h2>
+          <p class="consent-item__text">Согласие даётся проставлением отметки в поле «Я даю согласие на обработку
+            персональных данных» в форме регистрации. Дата и время отправки формы подтверждают дату и факт дачи согласия.
+            С Политикой обработки персональных данных, размещённой по адресу
+            <a href="https://egz-session.ru/" target="_blank" rel="noopener noreferrer">https://egz-session.ru/</a>, я
+            ознакомлен(а).</p>
+        </div>
+      </article>
+
+      <div class="consent__back">
+        <a href="index.html" class="btn btn--primary">← Вернуться на главную</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logos">
+        <img src="img/logo1.svg" alt="Министерство строительства" class="logo">
+        <img src="img/logo2.svg" alt="Роскапстрой" class="logo">
+        <img src="img/logo3.svg" alt="ЦРТ" class="logo">
+        <img class="logogo" src="img/logo4.svg" alt="Вертикаль" class="logo logo--crt">
+      </div>
+      <div class="footer__contacts">
+        <h3 class="footer__title">КОНТАКТЫ</h3>
+        <p class="footer__text">По вопросам партнёрства и участия<br>представителей коммерческих организаций</p>
+        <a href="mailto:verapopkova@amururban.ru" class="footer__email">verapopkova@amururban.ru</a>
+        <a href="tel:+79098835367" class="footer__phone">+7 909 88 35 367</a>
+        <a href="index.html" class="footer__privacy">На главную</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
