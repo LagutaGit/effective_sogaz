@@ -22,7 +22,7 @@ jobs:
         server: ${{ secrets.SFTP_HOST }}
         username: ${{ secrets.SFTP_USERNAME }}
         password: ${{ secrets.SFTP_PASSWORD }} # Либо используйте ssh-key
-        protocol: sftp
+        protocol: ftps
         port: 22 # Укажите ваш порт SFTP, если он отличается от стандартного
         local-dir: ./ # Какую папку из репозитория копировать (например, ./dist/)
         server-dir: egzsession/public_html/ # Путь к папке на сервере
