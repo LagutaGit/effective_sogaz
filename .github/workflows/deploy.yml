@@ -1,0 +1,28 @@
+name: Deploy via SFTP
+
+on:
+  push:
+    branches:
+      - main # Ветка, при пуше в которую запускается деплой
+
+jobs:
+  web-deploy:
+    name: Upload Files
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Нужно для корректного определения измененных файлов
+
+    - name: Sync files to server
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.SFTP_HOST }}
+        username: ${{ secrets.SFTP_USERNAME }}
+        password: ${{ secrets.SFTP_PASSWORD }} # Либо используйте ssh-key
+        protocol: sftp
+        port: 22 # Укажите ваш порт SFTP, если он отличается от стандартного
+        local-dir: ./ # Какую папку из репозитория копировать (например, ./dist/)
+        server-dir: egzsession/public_html/ # Путь к папке на сервере
