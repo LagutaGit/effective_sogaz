@@ -614,7 +614,7 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 40px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
