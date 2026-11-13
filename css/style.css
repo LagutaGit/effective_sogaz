@@ -622,7 +622,7 @@ ol {
 .footer__logos {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
   padding-top: 4px;
 }
