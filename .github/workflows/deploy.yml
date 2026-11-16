@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # ВАЖНО: загружаем всю историю Git, чтобы узнать реальное время файлов
 
       - name: Deploy via SFTP (lftp)
         env:
@@ -20,7 +22,12 @@ jobs:
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
         run: |
-          sudo apt-get update && sudo apt-get install -y lftp
+          # Устанавливаем lftp и утилиту для восстановления таймстемпов
+          sudo apt-get update && sudo apt-get install -y lftp git-restore-mtime
+          
+          # Восстанавливаем время изменения файлов до даты их последнего коммита
+          git restore-mtime
+          
           lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" sftp://"$SFTP_HOST":22 <<EOF
           set sftp:auto-confirm yes
           set ssl:verify-certificate no
